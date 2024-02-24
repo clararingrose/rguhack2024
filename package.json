@@ -9,7 +9,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node html/views/server.js"
+    "start": "node html/server.js"
   },
   "author": "",
   "license": "ISC",
