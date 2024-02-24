@@ -22,12 +22,18 @@ app.get('/map', function(req, res) {
 // transport page
 app.get('/transport', function(req, res) {
     res.render('pages/transport.ejs');
-   });
+});
 
-   // transport page
-app.get('/transport', function(req, res) {
-    res.render('pages/transport.ejs');
-   });
+// events page
+app.get('/events', function(req, res) {
+    res.render('pages/events.ejs');
+});
+
+// info page
+app.get('/info', function(req, res) {
+    res.render('pages/info.ejs');
+});
+
 
 app.listen(8080);
 console.log('8080 is the magic port'); 
