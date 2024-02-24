@@ -15,10 +15,19 @@ app.get('/', function(req, res) {
 
 
 // about page
-app.get('/about', function(req, res) {
- res.render('pages/about');
+app.get('/map', function(req, res) {
+ res.render('pages/map.ejs');
 });
 
+// transport page
+app.get('/transport', function(req, res) {
+    res.render('pages/transport.ejs');
+   });
+
+   // transport page
+app.get('/transport', function(req, res) {
+    res.render('pages/transport.ejs');
+   });
 
 app.listen(8080);
 console.log('8080 is the magic port'); 
