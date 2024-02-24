@@ -13,6 +13,11 @@ app.get('/', function(req, res) {
  res.render('pages/index.ejs');
 });
 
+// map page
+app.get('/map', function(req, res) {
+    res.render('pages/map.ejs');
+});
+
 
 // contact page
 app.get('/contact', function(req, res) {
