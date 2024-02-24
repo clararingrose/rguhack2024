@@ -1,0 +1,24 @@
+img{
+
+}
+.q1{
+    
+    position: absolute;
+    left: 19%;
+    top: 90%;
+    
+}
+#mainne{
+    width: 90%;
+    height: 90%;
+}
+
+.vis{
+    background-color: green;
+}
+#testContent{
+    display: none;
+    float:right;
+    width: 20%;
+    height: auto;
+}
