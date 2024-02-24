@@ -6,3 +6,8 @@
 *{
     font-family: sans-serif;
 }
+
+nav ul li {
+    display: flex;
+    flex-direction: row;
+}
