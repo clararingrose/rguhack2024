@@ -10,7 +10,7 @@
 //     gardens.bindPopup("winter gardens").openPopup();
 
 //   });
-var mymap = L.map('map').setView([57.13042616406666, -2.10522329808364], 16);
+var mymap = L.map('map').setView([57.13042616406666, -2.10522329808364], 17);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
