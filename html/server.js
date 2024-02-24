@@ -14,9 +14,9 @@ app.get('/', function(req, res) {
 });
 
 
-// about page
-app.get('/map', function(req, res) {
- res.render('pages/map.ejs');
+// contact page
+app.get('/contact', function(req, res) {
+ res.render('pages/contact.ejs');
 });
 
 // transport page
