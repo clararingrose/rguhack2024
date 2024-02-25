@@ -5,6 +5,11 @@ body {
     color: #1b1b3a;
 }
 
+main{
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
 /* font regular weight */
 @font-face {
     font-family: proxima-nova;
