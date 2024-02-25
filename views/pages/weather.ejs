@@ -12,7 +12,18 @@
         <main>
             <h1>Weather</h1>
 
-            <p id="output"></p>
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://rachelsquirrel.files.wordpress.com/2022/12/20221215_114747.jpg" height="400px" alt="Duthie Park in the snow">
+                    </td>
+                    <td>
+                        <img src="https://all.accor.com/magazine/imagerie/shutterstock_1202803783-4a7f.jpg" height="400px" alt="Duthie Park in the sun">
+                    </td>
+                </tr>
+            </table>
+
+            <div id="output"></div>
 
             <!-- http://api.weatherapi.com/v1/forecast.json?key=b2bd0330a48f4135aca23234242502&q=57.13069126923598, -2.1037042191987134&days=7&aqi=no&alerts=no -->
         </main>
@@ -37,12 +48,23 @@
                 // Extract the current temperature
                 const currentTempC = data.current.temp_c;
                 const currentTempF = data.current.temp_f;
+
+                var dates = [];
+                var temps = [];
+                for (var i = 0; i < 7; i++){
+                    dates[i] = data.forecast.forecastday.date;
+                    temps[i] = data.forecast.forecastday.day.avgtemp_c;
+                }
+
+                var output = "<p>"
                 
-                
+                for (var i = 0; i < 7; i++){
+                    output+= dates[i] + " - " + temps[i] + "°C<br>"
+                }
+
+                output+="</p>"
                 // Update the content of the output div with the current temperature
-                document.getElementById('output').innerHTML = `
-                    <p>Current Temperature: ${currentTempC}°C</p>
-                `;
+                document.getElementById('output').innerHTML = output;
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
