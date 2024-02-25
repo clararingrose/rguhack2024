@@ -27,10 +27,13 @@
                 // Extract the current temperature
                 const currentTempC = data.current.temp_c;
                 const currentTempF = data.current.temp_f;
+                const APIImage = data.current.condition.icon;
                 
                 // Update the content of the output div with the current temperature
                 document.getElementById('output').innerHTML = `
-                    <p>Current Temperature: ${currentTempC}°C</p>
+                    <p>Current Temperature: ${currentTempC}°C</p> 
+            <img src="${APIImage}" alt="weather icon">
+
                 `;
             })
             .catch(error => {
