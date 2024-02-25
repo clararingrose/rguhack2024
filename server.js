@@ -52,4 +52,15 @@ app.get('/treasure', function(req, res) {
 });
 
 // ar page
-app.get('/
+app.get('/ar', function(req, res) {
+    res.render('pages/ar.ejs');
+});
+
+// winter gardens map page
+app.get('/wgmap', function(req, res) {
+    res.render('pages/wintergardensmap.ejs');
+});
+
+
+app.listen(8080);
+console.log('8080 is the magic port'); 
