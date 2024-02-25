@@ -33,9 +33,28 @@
                 document.getElementById('output').innerHTML = `
                     <p class="difFont">Current Temperature: ${currentTempC}°C</p> 
             <img src="${APIImage}" alt="weather icon">
+            
 
                 `;
-            })
+                
+                const date = new Date();
+                wint = [0,1,10,12];
+                if((wint.includes(date.getMonth() && ((date.getTime()%86400)/60 >= 630) && date.getHours()<15)) || ((date.getTime()%86400)/60 >= 630) && date.getHours()<16){
+                    if(date.getMonth = 11 && date.getDay() == 26 || date.getDay() == 25){
+
+                    }else if(date.getMonth = 0 && date.getDay() == 1 || date.getDay() == 2){
+
+                    }else{
+            document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + "<br><p>The winter garden is open</p>"
+            }
+                
+
+    }else if(((date.getTime()%86400)/60 >= 630) && date.getHours()<15){
+        document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + "<br><p>The winter garden is open</p>"
+
+    }
+}
+            )
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
