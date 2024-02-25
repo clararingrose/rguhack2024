@@ -3,59 +3,46 @@
     <head>
         <%- include('../partials/head') %>
         <link rel="stylesheet" href="../../styles/wintergardensmap.css">
+        
     </head>
-
+    
     <body>
         <header>
             <%- include('../partials/header') %> 
         </header>
 
         <main>
-
+            
             <img src="../../images/wintergardensmap.png" usemap="#workmap" width="auto" height="auto">
             <map name="workmap" >
-                <area shape="circle" coords="331,685,10" onclick="24()"  >
-                <area shape="circle" coords="366,511,10" onclick="25()"  >
-                <area shape="circle" coords="124,562,10" onclick="26()"  >
-                <area shape="circle" coords="166,213,10" onclick="27()"  >
+                <area shape="circle" coords="331,685,10" onclick="testing(24)"  >
+                <area shape="circle" coords="366,511,10" onclick="testing(25)"  >
+                <area shape="circle" coords="124,562,10" onclick="testing(26)"  >
+                <area shape="circle" coords="166,213,10" onclick="testing(27)"  >
 
-                <area shape="circle" coords="191,320,10" onclick="28()"  >
-                <area shape="circle" coords="328,421,10" onclick="29()"  >
-                <area shape="circle" coords="427,235,10" onclick="30()"  >
-                <area shape="circle" coords="525,239,10" onclick="31()"  >
+                <area shape="circle" coords="191,320,10" onclick="testing(28)"  >
+                <area shape="circle" coords="328,421,10" onclick="testing(29)"  >
+                <area shape="circle" coords="427,235,10" onclick="testing(30)"  >
+                <area shape="circle" coords="525,239,10" onclick="testing(31)"  >
 
-                <area shape="circle" coords="507,476,10" onclick="32()"  >
-                <area shape="circle" coords="812,430,10" onclick="33()"  >
-                <area shape="circle" coords="776,330,10" onclick="34()"  >
-                <area shape="circle" coords="579,396,10" onclick="35()"  >
+                <area shape="circle" coords="507,476,10" onclick="testing(32)"  >
+                <area shape="circle" coords="812,430,10" onclick="testing(33)"  >
+                <area shape="circle" coords="776,330,10" onclick="testing(34)"  >
+                <area shape="circle" coords="579,396,10" onclick="testing(35)"  >
 
-                <area shape="circle" coords="618,291,10" onclick="36()"  >
-                <area shape="circle" coords="677,180,10" onclick="37()"  >
-                <area shape="circle" coords="711,277,10" onclick="38()"  >
-                <area shape="circle" coords="743,242,10" onclick="39()"  >
-                <area shape="circle" coords="847,235,10" onclick="40()"  >
+                <area shape="circle" coords="618,291,10" onclick="testing(36)"  >
+                <area shape="circle" coords="677,180,10" onclick="testing(37)"  >
+                <area shape="circle" coords="711,277,10" onclick="testing(38)"  >
+                <area shape="circle" coords="743,242,10" onclick="testing(39)"  >
+                <area shape="circle" coords="847,235,10" onclick="testing(40)"  >
 
-                <area shape="circle" coords="582,606,10" onclick="toilet()"  >
-                <area shape="circle" coords="620,606,10" onclick="cafe()"  >
+                <area shape="circle" coords="582,606,10" onclick="testing('toilet')"  >
+                <area shape="circle" coords="620,606,10" onclick="testing('cafe')"  >
             </map>
 
-            <div id="testContent">
-                <p>
-                    The David Welch Winter Gardens<br>
-                    These are one of Europe’s largest indoor botanical gardens containing many rare and exotic plants on show from all around the world. Free admission, see first page for opening times.
-                    On entering, the visitor is greeted by a host of tropical wonders,
-                    colourful display beds and important economic crop plants including banana, coffee, cocoa and tea. The hibiscus with its large colourful trumpet shaped flowers has a truly stunning appearance.
-                    The Tropical House contains plants mainly from the moist forests of tropical South America, giving the feeling of being in a tropical jungle. It contains plants such as bromeliads and orchids plus gingers and aroids from Asia. The character of the vegetation is dominated by the versatile Bromeliaceae pineapple family.
-                    Plants from dry lands throughout the world – from Central America to Southern Africa, from Arabia to Madagascar can be found in the Arid House. This has one of the largest collections of cacti and succulents in Britain. The oldest specimen is the Echinocactus grusonnii or barrel cactus at more than 100 years old.
-                    The sight of more than 30 hanging baskets in their full glory in the Victorian Corridor is a must for any visitor over summer months.
-                    The magnificent Temperate House with its cascading water feature contains plants from warm temperate regions of the world, especially Australia, New Zealand, South Africa and the Mediterranean.
-                    Ferns were among the first land plants 400 million years ago and the Fern House display is captivating with the natural setting beside water and the exhibitions of foliage and leaf texture.
-                </p>
-
-                <img src="../../images/temperatehouse.png">
-                
+            <div id="changer"><!--content goes here with ajax $... -->
+                <p>goodbye</p>
             </div>
-
         </main>
 
         <footer>
@@ -64,9 +51,18 @@
     </body>
 
     <script>
-        function hi(){
-            document.getElementById("testContent").style.display="block";
+        function test(input){
+            if(input==24){}
+            else if(input=="toilet"){alert("well duh")} 
+            else if(input=="TOODO"){}//its working
+
+        }
+        function tester()
+        {
+
         }
     </script>
-
+<script src=http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js></script>
+        
+<script src="javascript/main.js"></script>
 </html>
