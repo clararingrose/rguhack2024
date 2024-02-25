@@ -66,5 +66,10 @@ app.get('/gallery', function(req, res) {
     res.render('pages/gallery.ejs');
 });
 
+// weather page
+app.get('/weather', function(req, res) {
+    res.render('pages/weather.ejs');
+});
+
 app.listen(8080);
 console.log('8080 is the magic port'); 
