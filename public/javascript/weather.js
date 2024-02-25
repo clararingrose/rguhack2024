@@ -10,9 +10,9 @@ fetch('http://api.weatherapi.com/v1/forecast.json?key=b2bd0330a48f4135aca2323424
     })
     .then(data => {
         // Extract values
-        var output = "<table><tr><th>Date</th><th>Average Temp (°C)</th></tr>"
+        var output = "<table><tr><th>Date</th><th>Average Temp (°C)</th><th>Chance of Rain (%)</th><th>Chance of Snow (%)</th></tr>"
         data.forecast.forecastday.forEach(j =>{
-            output+= "<tr><td>" + j.date + "</td><td>" + j.day.avgtemp_c + "</td></tr>"
+            output+= "<tr><td>" + j.date + "</td><td>" + j.day.avgtemp_c + "</td><td>" + j.day.daily_chance_of_rain + "</td><td>" + j.day.daily_chance_of_snow + "</td></tr>"
         })
         output+="</table>"
 
