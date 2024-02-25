@@ -136,3 +136,8 @@ input[type=button], input[type=submit], input[type=reset] {
     width: 200px; /* Set width to make it smaller */
     box-sizing: border-box; /* Include padding and border in the width */
 }
+
+.difFont {
+    font-family: Arial, sans-serif;
+    
+}
