@@ -7,6 +7,14 @@
     font-family: sans-serif;
 }
 
+h2 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
 nav ul li {
     display: inline;
     margin: 0 10px;
@@ -16,6 +24,22 @@ nav ul li a {
     text-decoration: none;
     color: #000;
 }
+
+.home-panel {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.home-panel p {
+    padding-left: 2rem;
+}
+
+.home-panel img {
+    width: 40%;
+} 
 
 .parking {
     background-color: #f2f2f2;
