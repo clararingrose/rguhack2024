@@ -9,6 +9,8 @@ function testing(inppt){
         return true;
     
 }
+
+
 function addItemsToPage(inppt2){
     $('#changer').empty();
     
