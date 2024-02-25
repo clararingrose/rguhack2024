@@ -55,6 +55,7 @@ header, main, footer, nav{
 header, footer {
     background-color: #603863;
     color: white;
+    padding: 5px;
 }
 
 #map {
@@ -82,10 +83,6 @@ a:hover {
     text-decoration: underline;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #000;
-}
 
 .home-panel {
     width: 75%;
