@@ -1,23 +1,85 @@
+body {
+    width: 80%;
+    margin: auto;
+    font-family: 'proxima-nova';
+    color: #1b1b3a;
+}
+
+/* font regular weight */
+@font-face {
+    font-family: proxima-nova;
+    src: url(../fonts/Fontspring-DEMO-proximanovacond-regular.otf);
+}
+
+/* font bold */
+@font-face {
+    font-family: proxima-nova-bold;
+    src: url(../fonts/Fontspring-DEMO-proximanova-bold.otf);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'proxima-nova-bold';
+}
+
+/* nav bar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: white;
+}
+  
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: white;
+    color: #603863;
+    text-decoration: none;
+}
+
+header, main, footer, nav{
+    display: block;
+}
+
+header, footer {
+    background-color: #603863;
+    color: white;
+}
+
 #map {
     height: 400px;
-    width: 50%;
+    width: 1200px;
 }
 
-*{
-    font-family: sans-serif;
+/* for the contact table - */
+td {
+    padding-right: 20px;
 }
 
-h2 {
-    font-size: 2rem;
-}
-
-p {
-    font-size: 1.5rem;
-}
-
-nav ul li {
+#icon, header> h1 {
     display: inline;
     margin: 0 20px;
+    margin-right: 10px;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 nav ul li a {
