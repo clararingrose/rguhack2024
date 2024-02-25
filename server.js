@@ -61,6 +61,10 @@ app.get('/wgmap', function(req, res) {
     res.render('pages/wintergardensmap.ejs');
 });
 
+// gallery page
+app.get('/gallery', function(req, res) {
+    res.render('pages/gallery.ejs');
+});
 
 app.listen(8080);
 console.log('8080 is the magic port'); 
