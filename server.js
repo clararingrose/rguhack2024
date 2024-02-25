@@ -6,6 +6,13 @@ var app = express();
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(function (req, res, next) {
+    if (req.secure) {
+        res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    };
+    res.set('X-Clacks-Overhead', 'GNU Terry Pratchett');
+    next();
+});
 
 // use res.render to load up an ejs view file
 // index page
