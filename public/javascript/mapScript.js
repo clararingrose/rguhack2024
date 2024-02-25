@@ -10,12 +10,16 @@
 //     gardens.bindPopup("winter gardens").openPopup();
 
 //   });
+navigator.geolocation.getCurrentPosition(function(position){
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+});
 var mymap = L.map('map').setView([57.13042616406666, -2.10522329808364], 17);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 var restrooms = L.marker([57.13042616406666, -2.10522329808364]).addTo(mymap);
-restrooms.bindPopup("restrooms").on('click', () => changeText("Go piss girl"));
+restrooms.bindPopup("restrooms").on('click', function(){changeText("room for rest :) ??");addRoutingControl(lat, lon, 57.13042616406666, -2.10522329808364, mymap)});
 
 var gardens = L.marker([57.13168523036756, -2.1042621700640685]).addTo(mymap);
 gardens.bindPopup("winter gardens").on('click', () => changeText("These are one of Europe’s largest indoor botanical gardens containing many rare and exotic plants on show from all around the world. Free admission, see first page for opening times. On entering, the visitor is greeted by a host of tropical wonders, colourful display beds and important economic crop plants including banana, coffee, cocoa and tea. The hibiscus with its large colourful trumpet shaped flowers has a truly stunning appearance. The Tropical House contains plants mainly from the moist forests of tropical South America, giving the feeling of being in a tropical jungle. It contains plants such as bromeliads and orchids plus gingers and aroids from Asia. The character of the vegetation is dominated by the versatile Bromeliaceae pineapple family. Plants from dry lands throughout the world – from Central America to Southern Africa, from Arabia to Madagascar can be found in the Arid House. This has one of the largest collections of cacti and succulents in Britain. The oldest specimen is the Echinocactus grusonnii or barrel cactus at more than 100 years old. The sight of more than 30 hanging baskets in their full glory in the Victorian Corridor is a must for any visitor over summer months. The magnificent Temperate House with its cascading water feature contains plants from warm temperate regions of the world, especially Australia, New Zealand, South Africa and the Mediterranean. Ferns were among the first land plants 400 million years ago and the Fern House display is captivating with the natural setting beside water and the exhibitions of foliage and leaf texture The Winter Gardens feature three open courtyards. The Japanese Garden is a place of peace and tranquillity The Memorial Courtyard to David Welch remains a quiet place for Aberdonians and visitors alike. He was a celebrated Director of Aberdeen Parks who died in 2000. The Floral Courtyard features the Burma Star Association Memorial Rose Garden with ‘Burma Star’ the commemorative rose. It is dedicated to those who served in the 1941-45 WWII campaign. The Caithness stone slabs here were previously trodden on by prisoners at the old police HQ at Lodge Walk, off Castle Street."));
@@ -58,4 +62,72 @@ L.marker([57.13136384280768, -2.09871501573324]).addTo(mymap).bindPopup("The old
 
 function changeText(text){
     document.getElementById("sidePanel").textContent=text;
+}
+
+function addRoutingControl(lat, lon, destLat, destLon, map) {
+    
+    getDir(lat, lon, destLat, destLon);
+    dist = getDist(lat, lon, destLat, destLon);
+    console.log(dist)
+    // Create a routing control and add it to the map
+    var routingControl = L.Routing.control({
+        waypoints: [
+            L.latLng(lat, lon), // Start point
+            L.latLng(destLat, destLon) // Destination point
+        ],
+        router: L.Routing.osrmv1({
+            language: 'en', // Language for the route instructions
+            profile: 'foot' // Type of routing, e.g., 'car', 'foot', 'bike'
+        }),
+        routeWhileDragging: true, // Recalculate route while dragging waypoints
+        lineOptions: {
+            styles: [{ color: '#0073e6', weight: 6 }] // Define style for the route line
+        }
+    }).addTo(map);
+    console.log("here")
+}
+
+function getDir(lat, lon, destLat, destLon){
+    const vector1 = [lat, lon];
+    const vector2 = [destLat, destLon];
+
+// Calculate the direction vector
+    const directionVector = [
+        vector2[0] - vector1[0],
+        vector2[1] - vector1[1]
+    ];
+
+// Calculate the angle (in radians) of the direction vector from the positive x-axis
+    const angleRadians = Math.atan2(directionVector[1], directionVector[0]);
+
+// Convert the angle from radians to degrees
+    let angleDegrees = angleRadians * (180 / Math.PI);
+
+// Ensure the angle is positive
+    if (angleDegrees < 0) {
+        angleDegrees += 360;
+    }
+
+// Calculate the direction from north
+    const directionFromNorth = (90 - angleDegrees + 360) % 360;
+    const formattedDirection = directionFromNorth.toFixed(0).padStart(3, '0');
+
+    console.log("Direction Vector:", directionVector);
+    console.log("Direction from North (degrees):", formattedDirection);
+}
+function getDist(lat1, lon1, lat2, lon2){
+    const earthRadius = 6371000; // Radius of the earth in meters
+
+    // Convert latitude and longitude from degrees to radians
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+
+    // Calculate the distance using the Haversine formula
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const distance = earthRadius * c;
+
+    return Math.round(distance);
 }
