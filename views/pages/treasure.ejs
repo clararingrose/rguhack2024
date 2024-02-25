@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <%- include('../partials/head') %>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
 
     <body>
@@ -10,10 +11,14 @@
         </header>
 
         <main>
-
             <h1>Treasure Hunt</h1>
-
             <p>Find all the hidden treasures using our augmented reality experience TM <a href="/ar">here</a>!!!</p>
+
+            <form action="/ar">
+                <div class="g-recaptcha" data-sitekey="6Lex6X4pAAAAAG7R52UHYT_2a8cLRJ8xCLL0Jukh" required></div>
+                <br/>
+                <input type="submit" value="Open AR ExperienceTM">
+            </form>
 
         </main>
 
@@ -21,4 +26,16 @@
             <%- include('../partials/footer') %> 
         </footer>
     </body>
+
+    <script>
+        //function to force user to solve captcha before opening AR page
+        window.onload = function() {
+            var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+            if($recaptcha){
+                $recaptcha.setAttribute("required", "required");
+
+            };
+        };
+    </script>
 </html>
